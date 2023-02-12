@@ -1,7 +1,12 @@
+import sys
+path = '/home/christineiym/mysite'
+if path not in sys.path:
+   sys.path.insert(0, path)
+
 from flask import Flask, send_from_directory, render_template
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS #comment this on deployment
-from TestApiHandler import TestApiHandler
+# from TestApiHandler import TestApiHandler
 from getSuggestedRecipesHandler import getSuggestedRecipesHandler
 
 from getIngredientsHandler import getIngredientsHandler
@@ -30,7 +35,7 @@ def ok():
       'message': "api is running"
       }
 
-api.add_resource(TestApiHandler, '/flask/test')
+# api.add_resource(TestApiHandler, '/flask/test')
 
 api.add_resource(getSuggestedRecipesHandler, '/getSuggestedRecipes')
 
